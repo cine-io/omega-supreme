@@ -116,6 +116,9 @@ supreme.server = function server(primus, options) {
     });
 
     async.mapLimit(servers, options.concurrently, function contact(server, next) {
+      console.log("SERVER", server)
+      console.log("options", options)
+      console.log("options.url", options.url)
       request({
         method: options.method,               // Set the correct method.
         uri: url(server, options.url),        // Compile the correct URL
